@@ -25,7 +25,7 @@ export const Logo = styled.img`
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
+      <BrowserRouter basename="/HW20">
         <Routes>
           <Route path="/" element={<Authorization />} />
           <Route path="/registration" element={<Registration />} />
