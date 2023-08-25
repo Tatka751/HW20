@@ -1,23 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { styled } from "styled-components";
+import Authorization from "./pages/authorization/authorization";
+import Registration from "./pages/registration/registration";
+import { Route, Routes, BrowserRouter } from "react-router-dom";
+import Hi from "./pages/hi/Hi";
+
+export const Wrapper = styled.div`
+  width: 100%;
+  heigth: 100%;
+  min-height: 100vh;
+  background: black;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+`;
+
+export const Logo = styled.img`
+  width: 50px;
+  height: 50px;
+`;
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Authorization />} />
+          <Route path="/registration" element={<Registration />} />
+          <Route path="/hi" element={<Hi />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
