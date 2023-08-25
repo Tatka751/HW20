@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/HW20/static/css/main.e6c13ad2.css",
+    "main.js": "/HW20/static/js/main.86149961.js",
+    "static/js/787.71a70df1.chunk.js": "/HW20/static/js/787.71a70df1.chunk.js",
+    "static/media/lock.jpg": "/HW20/static/media/lock.86ff2181db65bea7abfd.jpg",
+    "index.html": "/HW20/index.html",
+    "main.e6c13ad2.css.map": "/HW20/static/css/main.e6c13ad2.css.map",
+    "main.86149961.js.map": "/HW20/static/js/main.86149961.js.map",
+    "787.71a70df1.chunk.js.map": "/HW20/static/js/787.71a70df1.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e6c13ad2.css",
+    "static/js/main.86149961.js"
+  ]
+}
