@@ -17,4 +17,4 @@ function Hi() {
 
 export default Hi;
 
-Hi();
+

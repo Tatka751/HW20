@@ -60,7 +60,7 @@ const InputCheckbox = styled.input`
 `;
 
 function Authorization() {
-  const key = "local3000";
+  const key = "HW20";
   const [isCheckedRemember, setisCheckedRemember] = useState(false);
 
   const navigate = useNavigate();
@@ -88,31 +88,44 @@ function Authorization() {
     }
   }
 
-  if (dataFromLocalStorage(key)) {
-    let data = dataFromLocalStorage(key);
-    state.email = data.inputEmail;
-    state.password = data.inputPassword;
-  }
+  useEffect(() => {
+    if (dataFromLocalStorage(key)) {
+      let data = dataFromLocalStorage(key);
+      state.email = data.inputEmail;
+      state.password = data.inputPassword;
+    }
+  }, [state]);
+
 
   function handleChange({ target: { name, value } }) {
-    if (name === "email") {
-      setState({ ...state, [name]: value });
-    }
-
-    if (name === "password") {
-      setState({ ...state, [name]: value });
-      if (dataFromLocalStorage(value)) {
+    switch(name) {
+      case "email":  {
+        setState({ ...state, [name]: value });
+        break;
       }
+      
+    
+      case "password": {
+        setState({ ...state, [name]: value });
+        break;
+      }
+
+      case "remember": {
+        setisCheckedRemember(!isCheckedRemember);
+        setState({ ...state, [name]: value });
+        break;
+      }
+
+      case "signInButton":{
+        navigate("/hi");
+        break;
+      }
+    
     }
-    if (name === "remember") {
-      setisCheckedRemember(!isCheckedRemember);
-      setState({ ...state, [name]: value });
-    }
-    if (name === "signInButton") {
-      navigate("/hi");
-    }
+    
+    
   }
-  useEffect(() => {}, [state]);
+ 
 
   return (
     <>

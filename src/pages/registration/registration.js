@@ -111,11 +111,9 @@ function Registration() {
   function dataToLocalStorage(data) {
     if (window.localStorage) {
       let obj = data;
-      let key = "local3000";
+      let key = "HW20";
 
-      let s = JSON.stringify(obj);
-
-      localStorage.setItem(key, s);
+      localStorage.setItem(key, JSON.stringify(obj));
     } else alert(" localStorage is not supported by your browser ");
   }
   const [color, setColor] = useState("");
@@ -166,7 +164,6 @@ function Registration() {
       }
     }
   }
-  useEffect(() => {}, [state]);
 
   return (
     <>
@@ -198,6 +195,7 @@ function Registration() {
         ></InputEmail>
         <InputPassword
           name="inputPassword"
+          type="password"
           value={state.inputPassword}
           placeholder="Password*"
           onChange={handleInput}
