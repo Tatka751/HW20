@@ -122,45 +122,44 @@ function Registration() {
   const [colorPassword, setColorPassword] = useState("");
 
   function handleInput({ target: { name, value } }) {
-    if (name === "inputFirstName") {
-      setState({ ...state, [name]: value });
-      let res = isValidFirstLastName(value);
-      res = String(res);
-      setColor(res);
-    }
-
-    if (name === "inputLastName") {
-      setState({ ...state, [name]: value });
-      let res = isValidFirstLastName(value);
-      res = String(res);
-      setColorLastName(res);
-    }
-
-    if (name === "inputEmail") {
-      setState({ ...state, [name]: value });
-      let res = isValidEmail(value);
-      res = String(res);
-      setColorEmail(res);
-    }
-
-    if (name === "inputPassword") {
-      setState({ ...state, [name]: value });
-      let res = isValidPassword(value);
-      res = String(res);
-      setColorPassword(res);
-    }
-
-    if (name === "signUpButton") {
-      if (
-        state.inputFirstName !== "" &&
-        state.inputLastName !== "" &&
-        state.inputEmail !== "" &&
-        state.inputPassword !== ""
-      ) {
-        dataToLocalStorage(state);
-        navigate("/hi");
-      } else {
-        alert("It is necessary to fill all inputs!");
+    switch(name) {
+      case "inputFirstName":  {
+        setState({ ...state, [name]: value });
+        let res = isValidFirstLastName(value);
+        res = String(res);
+        setColor(res);
+        break;
+      }
+      case "inputLastName":  {
+        setState({ ...state, [name]: value });
+        let res = isValidFirstLastName(value);
+        res = String(res);
+        setColorLastName(res);
+        break;
+      }
+      case "inputEmail":  {
+        setState({ ...state, [name]: value });
+        let res = isValidEmail(value);
+        res = String(res);
+        setColorEmail(res);
+          break;
+      }
+      case "inputPassword":  {
+        setState({ ...state, [name]: value });
+        let res = isValidPassword(value);
+        res = String(res);
+        setColorPassword(res);
+      }
+      case "signUpButton":  {
+        if (
+          state.inputFirstName !== "" &&
+          state.inputLastName !== "" &&
+          state.inputEmail !== "" &&
+          state.inputPassword !== ""
+        ) {
+          dataToLocalStorage(state);
+          navigate("/hi");
+        } 
       }
     }
   }
